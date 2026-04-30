@@ -1,29 +1,27 @@
-PROGRAM scores
+PROGRAM student_report
 IMPLICIT NONE
 INTEGER:: i
-READ*, i(1,10)
-a(1)=85
-a(2)=62
-a(3)=45
-a(4)=91
-a(5)=38
-a(6)=74
-a(7)=55
-a(8)=88
-a(9)=61
-a(10)=47
-PRINT*,i(1,10)
-  IF a=(80:100)
-  PRINT*, 'GRADE_(A)_distinction:'
+REAL:: a(10)
+CHARACTER (LEN=1) :: Grade
+CHARACTER (LEN=11) :: Remark
+a=(/85,62,45,91,38,74,55,88,61,47/)
+PRINT*, "Grade  Remarks"
+DO i=1,10
+IF (a(i)>=80 .AND. a(i)<=100) THEN
+Grade= 'A'
+Remark="Distinction"
+ELSE IF (a(i)>=60 .AND. a(i)<=79) THEN
+Grade="B"
+Remark="Credit"
+ELSE IF (a(i)>=40 .AND. a(i)<=59) THEN
+Grade="C"
+Remark="Pass"
+ELSE 
+Grade="F"
+Remark="Fail"
   END IF
-  ELSE IF a=(60:79), =(40:59), a=(0:39)
-  PRINT*, 'GRADE_(B)_Credit:','GRADE_(C)_pass:', 'GRADE_(D)_fail:'
-  END ELSE IF
-
-   DO i(1,10)
-   PRINT*, i(1,10)
    END DO
-END PROGRAM scores
+END PROGRAM student_report
 !MATILDA NTIM
 !6311224
   
